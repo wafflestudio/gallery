@@ -1,1 +1,14 @@
 와플스튜디오를 보여줘요
+
+
+
+
+------
+
+
+ssh-keygen -t rsa -C "id@wafflestudio.com" 실행 후 엔터 꽝꽝 치다가
+pass phrase 정하고 (비밀번호)
+github -> account settings -> SSH Public Keys -> Add another public key
+title(본인이 아무거나 정하시고) key 는
+cat ~/.ssh/id_rsa.pub 해서 나온걸 긁어서 그대로 넣으면 돼요
+
