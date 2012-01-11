@@ -1,4 +1,4 @@
-#conding : utf-8
+#coding : utf-8
 require 'iconv'
 class SketchImage
   include Mongoid::Document
