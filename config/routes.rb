@@ -1,5 +1,7 @@
 Gallery::Application.routes.draw do
-  get "sketches/index"
+	get "main/index"
+
+	get "sketches/index"
 
   get "sketches/new"
 
