@@ -1,0 +1,40 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+	background-image: url("/assets/bg.png") repeat;
+	font-family: 'NanumGothic','맑은 고딕'; }
+
+h1 {
+	font-size: 12pt;
+	font-weight: bold; }
+
+h2{
+	font-size: 10pt; }
+
+.header {
+	margin: 0 auto;
+	padding: 30 px; }
+
+#note {
+	background-image: url("assets/notebg.png") no-repeat;
+	width: 927px;
+	margin: 0 auto; }
+
+#leftnote {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	width: 560px; }
+
+#rightnote {
+	position: absoulte;
+	top: 0;
+	left: 620px;
+	padding: 10px;
+	width: 300px;}
+
+

@@ -1,5 +1,7 @@
 Gallery::Application.routes.draw do
   devise_for :members
+	get "main/index"
+
 
   resources :projects
   resources :sketches
