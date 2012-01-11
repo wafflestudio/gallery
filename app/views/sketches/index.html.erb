@@ -1,0 +1,7 @@
+<% @sketchs.each do |p| %>
+  <p>p.title</p>
+  <p>p.description</p>
+  <% p.project_images.each do |i| %>
+    <%= image_tag(i.image.url(:small)) %>
+  <% end -%>
+<% end -%>

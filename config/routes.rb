@@ -1,4 +1,28 @@
 Gallery::Application.routes.draw do
+  get "sketches/index"
+
+  get "sketches/new"
+
+  get "sketches/edit"
+
+  get "sketches/create"
+
+  get "sketches/update"
+
+  get "sketches/destroy"
+
+  get "projects/index"
+
+  get "projects/new"
+
+  get "projects/edit"
+
+  get "projects/create"
+
+  get "projects/update"
+
+  get "projects/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
