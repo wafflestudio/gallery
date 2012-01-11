@@ -1,29 +1,10 @@
 Gallery::Application.routes.draw do
+  devise_for :members
 	get "main/index"
 
-	get "sketches/index"
 
-  get "sketches/new"
-
-  get "sketches/edit"
-
-  get "sketches/create"
-
-  get "sketches/update"
-
-  get "sketches/destroy"
-
-  get "projects/index"
-
-  get "projects/new"
-
-  get "projects/edit"
-
-  get "projects/create"
-
-  get "projects/update"
-
-  get "projects/destroy"
+  resources :projects
+  resources :sketches
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -74,7 +55,7 @@ Gallery::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'main#index'
 
   # See how all your routes lay out with "rake routes"
 

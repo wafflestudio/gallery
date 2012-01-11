@@ -1,7 +1,21 @@
+Projects <br /> <br />
 <% @projects.each do |p| %>
-  <p>p.title</p>
-  <p>p.description</p>
+  <p><%= p.title %></p>
+  <p><%= p.description %></p>
   <% p.project_images.each do |i| %>
     <%= image_tag(i.image.url(:small)) %>
   <% end -%>
+  <p><%= p.developers.map {|d| d.name} %></p>
+  <p><%= p.designers.map {|d| d.name} %></p>
+<% end -%>
+
+Idea Sketches<br /><br />
+
+<% @sketches.each do |p| %>
+  <p><%= p.title %></p>
+  <p><%= p.description %></p>
+  <% p.sketch_images.each do |i| %>
+    <%= image_tag(i.image.url(:large)) %>
+  <% end -%>
+  <p><%= p.designers.map {|d| d.name} %></p>
 <% end -%>
