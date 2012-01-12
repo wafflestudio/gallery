@@ -1,0 +1,29 @@
+%h1 Editing story
+
+= render 'form'
+
+= link_to 'Show', @story
+\|
+= link_to 'Back', projects_path
+
+.container
+  .photos
+    %h2 Photos
+
+    - @story.project_images.each do |photo|
+      = render photo
+
+  .queue
+    / this division is for any upload errors
+    #photo_upload_error
+    / This division is replaced with a flash button by Uploadify
+    #photo_upload
+
+/ Only load uploadify javascript on pages they are needed
+= javascript_include_tag '/uploadify/swfobject.js', '/uploadify/jquery.uploadify.v2.1.0.min.js'
+
+/ See application_helper.rb for this code
+= photo_uploadify
+
+/ And more Javascript
+= javascript_include_tag 'jquery-ui.min'
