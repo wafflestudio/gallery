@@ -23,7 +23,7 @@
 @p.developers << @m2
 (1..5).each do |i|
 @i = ProjectImage.new()
-@i.image = File.open("init_data/00"+i.to_s+".jpg")
+@i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.project_images << @i
 @p.save
 @i.save
@@ -32,7 +32,7 @@ end
 @p = Sketch.create(:title => "keialks idea sketch", :description => "Display Wafflestudio's project, idea, sketches")
 (6..9).each do |i|
 @i = SketchImage.new()
-@i.image = File.open("init_data/00"+i.to_s+".jpg")
+@i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.sketch_images << @i
 @p.save
 @i.save
@@ -43,7 +43,7 @@ end
 @p = Project.create(:title => "infinite wall", :description => "hihihihihihiesdjfaoigjal;iewgfje;lw")
 (10..14).each do |i|
 @i = ProjectImage.new()
-@i.image = File.open("init_data/0"+i.to_s+".jpg")
+@i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.project_images << @i
 @p.save
 @i.save
@@ -58,9 +58,25 @@ end
 @p = Sketch.create(:title => "prizmas idea!!!", :description => "Display Wafflestudio's project, idea, sketches")
 (15..20).each do |i|
 @i = SketchImage.new()
-@i.image = File.open("init_data/0"+i.to_s+".jpg")
+@i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.sketch_images << @i
 @p.save
 @i.save
 end
 @p.designers << @m1
+
+(0..9).each do |i|
+  p = Project.create(:title => "test project"+i.to_s, :description => "hello")
+  im = ProjectImage.new
+  im.image = File.open("init_data/"+(i+21).to_s.rjust(3,'0')+".jpg")
+  im.save
+  p.project_images << im
+end
+
+(0..9).each do |i|
+  p = Sketch.create(:title => "test sketch"+i.to_s, :description => "hello")
+  im = SketchImage.new
+  im.image = File.open("init_data/"+(i+31).to_s.rjust(3,'0')+".jpg")
+  im.save
+  p.sketch_images << im
+end
