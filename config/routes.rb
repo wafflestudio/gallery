@@ -1,9 +1,16 @@
 Gallery::Application.routes.draw do
+
   devise_for :members
 	get "main/index"
 
 
-  resources :projects
+  resources :projects do
+    resources :project_images do
+      collection do
+        post 'sort'
+      end
+    end
+  end
   resources :sketches
 
   # The priority is based upon order of creation:

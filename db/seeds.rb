@@ -26,7 +26,6 @@
 @i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.project_images << @i
 @p.save
-@i.save
 end
 
 @p = Sketch.create(:title => "keialks idea sketch", :description => "Display Wafflestudio's project, idea, sketches")
@@ -35,7 +34,6 @@ end
 @i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.sketch_images << @i
 @p.save
-@i.save
 end
 @p.designers << @m
 @p.designers << @m1
@@ -46,7 +44,6 @@ end
 @i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.project_images << @i
 @p.save
-@i.save
 end
 
 @p.designers << @m
@@ -61,7 +58,6 @@ end
 @i.image = File.open("init_data/"+i.to_s.rjust(3,'0')+".jpg")
 @p.sketch_images << @i
 @p.save
-@i.save
 end
 @p.designers << @m1
 
@@ -69,7 +65,6 @@ end
   p = Project.create(:title => "test project"+i.to_s, :description => "hello")
   im = ProjectImage.new
   im.image = File.open("init_data/"+(i+21).to_s.rjust(3,'0')+".jpg")
-  im.save
   p.project_images << im
 end
 
@@ -77,6 +72,5 @@ end
   p = Sketch.create(:title => "test sketch"+i.to_s, :description => "hello")
   im = SketchImage.new
   im.image = File.open("init_data/"+(i+31).to_s.rjust(3,'0')+".jpg")
-  im.save
   p.sketch_images << im
 end
