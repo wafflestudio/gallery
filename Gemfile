@@ -26,6 +26,8 @@ gem 'thin'
 gem 'mongoid-paperclip', :require => "mongoid_paperclip"
 gem 'mongoid_spacial'
 gem 'devise'
+gem 'paperclip'
+gem 'haml'
 
 
 # To use ActiveModel has_secure_password
