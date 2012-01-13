@@ -1,0 +1,22 @@
+<div class="project_box">
+  <div>
+    <b>Title :</b>
+    <%= link_to project.title, project %>
+  </div>
+  <div>
+    <%= link_to image_tag(project.project_images.first.image.url(:small)), project %>
+  </div>
+  <div>
+    <b>Team:</b>
+    <b>Designers:</b>
+    <% project.designers.each do |d| -%>
+      <%= d.name %> 
+    <% end -%>
+    <b>Developers</b>
+    <% project.developers.each do |d| -%>
+      <%= d.name %> 
+    <% end -%>
+  </div>
+  <%= link_to 'edit', edit_project_path(project) %>
+  |<%= link_to 'destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+</div>

@@ -1,0 +1,6 @@
+<p>
+<%= image_tag @image.image.url if @image.image? %>
+</p>
+<br />
+<%= link_to 'edit', edit_project_project_image_path(@project, @image) %>
+<%= link_to 'back', @project %>

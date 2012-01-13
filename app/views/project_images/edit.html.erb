@@ -1,0 +1,6 @@
+<h1>Edit image</h1>
+<%= render 'form' %>
+
+<%= link_to 'show', [@project, @image] %>
+<%= link_to 'back', @project %>
+<%= link_to 'destroy', [@project,@image], :confirm => 'Are you sure?', :method => :delete %>

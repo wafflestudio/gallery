@@ -1,0 +1,25 @@
+<h1>Edit Project</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'show', @project %>
+<%= link_to 'back', projects_path %>
+
+<div class="container">
+  <div class="images">
+    <% @project.project_images.each do |p| -%>
+      <%= render p %>
+    <% end -%>
+  </div>
+  <div class="clear"></div>
+  <div class="queue">
+  <div id="project_image_upload_error"></div>
+  <div id="project_image_upload"></div>
+  </div>
+</div>
+
+<%= javascript_include_tag '/uploadify/swfobject.js', '/uploadify/jquery.uploadify.v2.1.0.min.js' %>
+
+<%= project_image_uploadify %>
+
+<%= javascript_include_tag 'jquery-ui.min' %>

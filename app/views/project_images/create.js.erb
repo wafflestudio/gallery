@@ -1,0 +1,5 @@
+<% if @image.errors.blank? -%>
+  $('.images').append('<%= escape_javascript(render(@image)) %>');
+<% else -%>
+  $('#project_image_upload_error').html('<pre><%= escape_javascript(render(text: @image_errors)) %></pre>');
+<% end -%>

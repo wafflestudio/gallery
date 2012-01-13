@@ -1,0 +1,21 @@
+<%= form_for [@project, @image], :html => {:multipart => true } do |f| %>
+  <% if @image.errors.any? -%>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+      <ul>
+        <% @image.errors.full_messages.each do |msg| -%>
+          <li><%= msg %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end -%>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+    <%= link_to 'cancel', [@project, @image] %>
+  </div>
+
+<% end -%>

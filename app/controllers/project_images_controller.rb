@@ -1,6 +1,6 @@
 class ProjectImagesController < ApplicationController
   before_filter :find_project
-  before_filter :find_or_build_photo, :except => [:index, :sort]
+  before_filter :find_or_build_image, :except => [:index, :sort]
   def index
   end
   def new
@@ -13,7 +13,7 @@ class ProjectImagesController < ApplicationController
   end
 
   def create
-    if @photo.save
+    if @image.save
       respond_to do |format|
         format.js
       end
@@ -30,7 +30,7 @@ class ProjectImagesController < ApplicationController
   end
 
   def destroy
-    @photo.destroy
+    @image.destroy
     redirect_to @project
   end
 
@@ -41,8 +41,8 @@ class ProjectImagesController < ApplicationController
     @story = @project
   end
 
-  def find_or_build_photo
-    @photo = params[:id] ? @project.project_images.find(params[:id]) : @project.project_images.build(params[:photo])
+  def find_or_build_image
+    @image = params[:id] ? @project.project_images.find(params[:id]) : @project.project_images.build(params[:project_image])
   end
 
 

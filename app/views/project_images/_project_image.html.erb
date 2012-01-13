@@ -1,0 +1,6 @@
+<div class="project_images">
+  <%= project_image.image_file_name %><br />
+  <%= link_to(image_tag(project_image.image.url(:small)), [@project, project_image]) if project_image.image? %><br />
+  <%= link_to 'edit', edit_project_project_image_path(@project, project_image) %>
+  <%= link_to 'del', [@project, project_image], :confirm => 'Are you sure?', :method => :delete %><br />
+</div>

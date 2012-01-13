@@ -1,4 +1,0 @@
-- if @photo.errors.blank?
-	== $('.photos').append('#{escape_javascript(render(@photo))}');
-- else
-	== $('#photo_upload_error').html('<pre>#{escape_javascript(render(text: @photo_errors))}</pre>');

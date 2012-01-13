@@ -1,7 +1,0 @@
-%p
-  = image_tag @photo.image.url if @photo.image.url
-
-%br
-= link_to 'Edit', edit_project_project_image_path(@story, @photo)
-\|
-= link_to 'Back', @story

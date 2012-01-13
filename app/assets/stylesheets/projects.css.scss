@@ -1,3 +1,21 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// index page //
+.project_box {
+  border:1px solid black;
+  margin-bottom:20px;
+  width:500px;
+}
+
+// show page //
+
+.images {
+  .project_images {
+    width:200px;
+    height:200px;
+    float:left;
+  }
+}

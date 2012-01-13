@@ -1,8 +1,0 @@
-.photo[project_image]
-  = link_to(image_tag(project_image.image.url(:small)), [@story, project_image]) if project_image.image.url(:small)
-  %br
-  = project_image.image_file_name
-  %br
-  = link_to 'edit', edit_project_project_image_path(@story, project_image)
-  |
-  = link_to 'del', [@story, project_image], :confirm => 'Are you sure?', :method => :delete
