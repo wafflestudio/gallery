@@ -30,6 +30,7 @@ class ProjectImagesController < ApplicationController
   end
 
   def destroy
+    @image.project = nil
     @image.destroy
     redirect_to @project
   end
