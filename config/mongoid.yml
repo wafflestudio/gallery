@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: jineok12_gallery_development
+  database: keialk_gallery
 
 test:
   host: localhost
-  database: jineok12_gallery_test
+  database: keialk_gallery_test
 
 # set these environment variables on your prod server
 production:
