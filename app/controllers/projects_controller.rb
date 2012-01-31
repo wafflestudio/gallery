@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
+  layout "admin"
   before_filter :find_or_build_project, :except => :index
   def index
     @projects = Project.all
-    @sketches = Sketch.all
   end
 
   def new

@@ -1,15 +1,8 @@
-Projects <br /> <br />
-<% @projects.each do |p| %>
-  <%= render p %>
-<% end -%>
-
-Idea Sketches<br /><br />
-
-<% @sketches.each do |p| %>
-  <p><%= p.title %></p>
-  <p><%= p.description %></p>
-  <% p.sketch_images.each do |i| %>
-    <%= image_tag(i.image.url(:large)) %>
-  <% end -%>
-  <p><%= p.designers.map {|d| d.name} %></p>
-<% end -%>
+<div id="page">
+  <div id="content">
+    Projects <br /> <br />
+    <% @projects.each do |p| %>
+      <%= render p %>
+    <% end -%>
+  </div>
+</div>

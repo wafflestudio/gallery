@@ -1,22 +1,23 @@
-<div class="project_box">
-  <div>
-    <b>Title :</b>
-    <%= link_to project.title, project %>
-  </div>
-  <div>
-    <%= link_to image_tag(project.project_images.first.image.url(:small)), project %>
-  </div>
-  <div>
-    <b>Team:</b>
-    <b>Designers:</b>
+<div class="post">
+  <h2 class="title">Title : <%= link_to project.title, project %></h2>
+  <p class="meta">
+    <span class="posted"><%= project.created_at %></span>
+    Designers:
     <% project.designers.each do |d| -%>
-      <%= d.name %> 
+      <%= link_to d.name, '#' %> 
     <% end -%>
-    <b>Developers</b>
+    Developers:
     <% project.developers.each do |d| -%>
-      <%= d.name %> 
+      <%= link_to d.name, '#' %> 
+    <% end -%>
+  </p>
+  <div>
+    <% project.project_images.each do |p| -%>
+      <%= link_to image_tag(p.image.url(:small)), project %>
     <% end -%>
   </div>
-  <%= link_to 'edit', edit_project_path(project) %>
-  |<%= link_to 'destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+  <div class="links">
+    <%= link_to 'edit', edit_project_path(project) %>
+    |<%= link_to 'destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 </div>
