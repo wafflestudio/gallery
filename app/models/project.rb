@@ -1,15 +1,15 @@
 #coding : utf-8
 class Project
   include Mongoid::Document
-  include Mongoid::Timestamps
   include Mongoid::Paperclip
   field :title, :type => String
   field :description, :type => String
   field :mail, :type => String
+  field :created_at, :type => Date
 
   has_many :project_images, dependent: :delete
-  has_and_belongs_to_many :designers, class_name:  "Member", inverse_of: :project
-  has_and_belongs_to_many :developers, class_name: "Member", inverse_of: :project
+  has_and_belongs_to_many :designers, class_name:  "Member", inverse_of: :projects
+  has_and_belongs_to_many :developers, class_name: "Member", inverse_of: :projects
   accepts_nested_attributes_for :project_images, :allow_destroy => true
   accepts_nested_attributes_for :designers
   accepts_nested_attributes_for :developers
