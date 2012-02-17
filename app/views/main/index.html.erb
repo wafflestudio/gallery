@@ -18,8 +18,8 @@
 				columnWidth : 20
 			});
 		});
-
-		setInterval(function (){
+		
+		var fadeInterval = setInterval(function (){
 				var show1 = $imgouter1.index($('.imgouter1:visible').eq(0));
 				var show2 = $imgouter2.index($('.imgouter2:visible').eq(0));
 				$imgouter1.eq(show1).fadeOut('normal');
@@ -42,6 +42,13 @@
 				}, 1000);
 		
 		}, 5000);
+	
+//		$imgouter.bind('mouseover', clearInterval(fadeInterval)).bind('mouseout', fadeInterval);
+
+		$('.showproject').ajaxComplete(function(e, xhr, setting) {
+    	$('#leftnote').html(xhr.responseText);
+    });
+
   });
 </script>
 <% end -%>
@@ -49,17 +56,10 @@
 <div id="container">
 	<div id="header">
 		<img src="/assets/wafflestudio.png" alt="WaffleStudio">
-		<h1>Waffle Studio</h1>
 	</div>
 
 	<div id="note">
 		<div id="leftnote">
-			<div id="title"><h2>Project Title?</h2>
-			</div>
-			<div id="slider">
-			</div>
-			<div id="contents">
-			</div>
 		</div><!--Leftnote-->
 
 		<div id="rightnote">
@@ -71,7 +71,7 @@
 						<% unless @projects[j*5+i].nil? -%>
 							<div class="imgbox">
 							<% Rails.logger.info @projects[j*5+i] %>
-							<%= link_to image_tag(@projects[j*5+i].project_images.first.image.url(:small)) unless @projects[j*5+i].project_images.first.nil? %>
+				 			<%= link_to image_tag(@projects[j*5+i].project_images.first.image.url(:small)), main_show_path(@projects[j*5+i]), :remote => true, :class => 'showproject'  unless @projects[j*5+i].project_images.first.nil? %>
 							</div><!--imgbox-->
 						<% else -%>
 						<% end -%>
@@ -89,7 +89,7 @@
 						<% unless @sketches[j*5+i].nil? -%>
 							<div class="imgbox">
 							<% Rails.logger.info @sketches[j*5+i] %>
-							<%= link_to image_tag(@sketches[j*5+i].sketch_images.first.image.url(:small)) unless @sketches[j*5+i].sketch_images.first.nil? %>
+							<%= link_to image_tag(@sketches[j*5+i].sketch_images.first.image.url(:small)), main_show_path(@sketches[j*5+i]), :remote => true, :class => 'showproject'  unless @sketches[j*5+i].sketch_images.first.nil? %>
 							</div><!--imgbox-->
 						<% else -%>
 						<% end -%>

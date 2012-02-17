@@ -1,0 +1,7 @@
+<div class="slider"></div>
+<div class="project_detail">
+	<% @project.title %>
+	<% @project.project_images.each do |p| %>
+		<%= image_tag(p.image.url(:small)) %>
+	<% end -%>
+</div>

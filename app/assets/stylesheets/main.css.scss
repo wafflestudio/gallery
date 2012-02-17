@@ -6,7 +6,7 @@ html {
 	height: 100%; }
 
 body {
-	background: #47301d;
+	background: url("/assets/brown_03.jpg"); 
 	font-family: 'NanumGothic', '맑은 고딕';
 	text-align: center;
 	height: 100%;
@@ -14,57 +14,58 @@ body {
 	padding: 0; }
 
 #container {
-	background: url("/assets/bg.png") repeat-y;
-	width: 927px;
+	background: url("/assets/bg_shadow.png"); 
+	width: 900px;
 	height: 100%;
 	margin: 0 auto; }
-
-h1 {
-	font-size: 10pt; }
-
-h2{
-	font-size: 10pt; }
 
 p {
 	margin : 0;
 	padding: 0; }
 
+img {
+	border: 0; }
+
 #header {
-	margin: 0 auto; 
-	padding-top: 30px; }
+	margin: 0 auto;
+	position: relative;
+	top: 40px; }
 
 #note {
-	background: url("/assets/notebg.png") no-repeat;
+	background: url("/assets/notebg900.png") no-repeat;
 	position: relative;
-	width: 927px;
-	height: 533px;
+	top: 40px;
+	width: 898px;
+	height: 800px;
 	margin: 0 auto;
 	text-align: left; }
 
 #leftnote {
 	position: absolute;
-	top: 40px;
-	left: 0;
+	top: 80px;
+	left: 50px;
 	padding: 10px;
 	width: 550px; }
 
 #rightnote {
 	position: absolute;
-	top: 30px;
-	right: 0;
-	padding: 10px;
-	width: 300px;}
+	top: 80px;
+	right: -15px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 275px;}
 
 .list {
-	width: 300px;
-	height: 220px;}
+	width: 275px;
+	height: 270px;}
 
 .imgouter {
 	width: 100%;
-	display: none;
-}
+	display: none;}
+
 .imgbox {
 	float: left;}
 
 .clearfix {
 	clear: both;}
+
