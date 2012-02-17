@@ -3,6 +3,7 @@ Gallery::Application.routes.draw do
   devise_for :members
 	get "main/index"
 
+	match 'main/:id' => 'main#show', :via => :get, :as => :main_show
 
   resources :projects do
     resources :project_images do
