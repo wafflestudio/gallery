@@ -11,6 +11,11 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+	def show
+		@project = Project.find(params[:id])
+		render :layout => false
+	end
+
   def create
     if @project.save
       redirect_to @project

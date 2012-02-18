@@ -1,42 +1,27 @@
-<h1>Project</h1>
 
-<p>
-  <b>Title :</b>
-  <%= @project.title %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @project.description%>
-</p>
-<p>
-  <b>Team:</b><br />
-  <b>Designers:</b>
-  <% @project.designers.each do |d| -%>
-    <%= d.name %> 
-  <% end -%>
-  <b>Developers</b>
-  <% @project.developers.each do |d| -%>
-    <%= d.name %> 
-  <% end -%>
-</p>
+<h1><%= @project.title %></h1>
 
-<%= link_to 'edit', edit_project_path(@project) %>
-<%= link_to 'back', projects_path %>
+<div id="slider">
+	<% @project.project_images.each do |p| %>
+		<div><%= image_tag(p.image.url) %></div>
+	<% end -%>
+</div> <!--slider-->
 
-<div class="container">
-  <div class="images">
-    <% @project.project_images.each do |p| -%>
-      <%= render p %>
-    <% end -%>
-  </div>
-  <div class="clear"></div>
-  <div class="queue">
-    <div id="project_image_upload_error"></div>
-    <div id="project_image_upload"></div>
-  </div>
+<div class="members">
+	<h2>members</h2>
+	<ul>
+		<% @project.developers.each do |d| %>
+		<li><%= d.name %>development</li>
+		<% end -%>
+		<% @project.designers.each do |d| %>
+		<li><%= d.name %> design</li>
+		<% end -%>
+	</ul>
 </div>
-<%= javascript_include_tag '/uploadify/swfobject.js', '/uploadify/jquery.uploadify.v2.1.0.min.js' %>
 
-<%= project_image_uploadify %>
-
-<%= javascript_include_tag 'jquery-ui.min' %>
+<div class="details">
+	<ul>
+		<li><%= @project.created_at %></li>
+		<li><%= @project.description %></li>
+	</ul>
+</div>

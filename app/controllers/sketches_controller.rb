@@ -10,6 +10,11 @@ class SketchesController < ApplicationController
   def edit
   end
 
+	def show
+		@sketch = Sketch.find(params[:id])
+		render :layout => false
+	end
+
   def create
     if @sketch.save
       redirect_to @sketch

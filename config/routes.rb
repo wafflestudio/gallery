@@ -4,6 +4,8 @@ Gallery::Application.routes.draw do
 	get "main/index"
 
 	match 'main/:id' => 'main#show', :via => :get, :as => :main_show
+  match 'projects/:id' => 'projects#show', :via => :get, :as => :projects_show
+  match 'sketches/:id' => 'sketches#show', :via => :get, :as => :sketches_show
 
   resources :projects do
     resources :project_images do

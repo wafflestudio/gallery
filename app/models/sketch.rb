@@ -10,4 +10,5 @@ class Sketch
   has_and_belongs_to_many :members
   accepts_nested_attributes_for :sketch_images, :allow_destroy => true
   accepts_nested_attributes_for :designers
+
 end

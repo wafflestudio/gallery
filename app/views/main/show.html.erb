@@ -1,2 +1,27 @@
 
-<%= @project.title %>
+<h1><%= @project.title %></h1>
+
+<div id="slider">
+	<% @project.project_images.each do |p| %>
+		<div><%= image_tag(p.image.url) %></div>
+	<% end -%>
+</div> <!--slider-->
+
+<div class="members">
+	<h2>members</h2>
+	<ul>
+		<% @project.developers.each do |d| %>
+		<li><%= d.name %></h3> <h4>development</li>
+		<% end -%>
+		<% @project.designers.each do |d| %>
+		<li><%= d.name %> design</li>
+		<% end -%>
+	</ul>
+</div>
+
+<div class="details">
+	<ul>
+		<li><%= @project.created_at %></li>
+		<li><%= @project.description %></li>
+	</ul>
+</div>
