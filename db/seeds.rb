@@ -7,9 +7,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@m = Member.create(:email => "keialk@wafflestudio.com", :name => "조겨리", :twitter => "keialk", :facebook => "keialk", :password => "whrufl", :password_confirm => "whrufl")
-@m1 = Member.create(:email => "prizma@wafflestudio.com", :name => "이재린", :facebook => "prizma", :password => "dlwofls", :password_confirm => "dlwofls")
-@m2 = Member.create(:email => "jineok12@wafflestudio.com", :name => "김진억", :twitter => "gin1231", :facebook => "gin1231", :password => "rlawlsdjr", :password_confirm => "rlawlsdjr")
+@m = Member.create(:email => "keialk@wafflestudio.com", :name => "조겨리", :twitter => "keialk", :facebook => "keialk", :password => "whrufl", :password_confirm => "whrufl", :admin => true)
+@m1 = Member.create(:email => "prizma@wafflestudio.com", :name => "이재린", :facebook => "prizma", :password => "dlwofls", :password_confirm => "dlwofls", :admin => true)
+@m2 = Member.create(:email => "jineok12@wafflestudio.com", :name => "김진억", :twitter => "gin1231", :facebook => "gin1231", :password => "rlawlsdjr", :password_confirm => "rlawlsdjr", :admin => true)
 @m3 = Member.create(:email => "kindone@wafflestudio.com", :name => "홍원욱", :twitter => "kindone", :facebook => "kindone", :password => "ghddnjsdnr", :password_confirm => "ghddnjsdnr")
 @m.save
 @m1.save

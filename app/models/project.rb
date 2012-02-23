@@ -8,6 +8,7 @@ class Project
   field :created_at, :type => Date
 
   has_many :project_images, dependent: :delete
+  has_and_belongs_to_many :managers, class_name: "Member", inverse_of: :manage_projects
   has_and_belongs_to_many :designers, class_name:  "Member", inverse_of: :projects
   has_and_belongs_to_many :developers, class_name: "Member", inverse_of: :projects
   accepts_nested_attributes_for :project_images, :allow_destroy => true
