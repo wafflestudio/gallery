@@ -1,0 +1,24 @@
+		<h3>Member</h3>
+		<ul class="nav">
+			<li><%= link_to 'Member', admin_members_path %></li>
+		</ul>
+		<h3>Project</h3>
+		<ul class="nav">
+			<li><%= link_to 'Project', admin_projects_path %></li>
+		</ul>
+		<h3>ProjectImage</h3>
+		<ul class="nav">
+			<li><%= link_to 'ProjectImage', admin_project_images_path %></li>
+		</ul>
+		<h3>Sketch</h3>
+		<ul class="nav">
+			<li><%= link_to 'Sketch', admin_sketches_path %></li>
+		</ul>
+		<h3>SketchImage</h3>
+		<ul class="nav">
+			<li><%= link_to 'SketchImage', admin_sketch_images_path %></li>
+		</ul>
+
+<% unless session[:admin].nil? -%>
+	<%= link_to 'Logout', admin_logout_path, :class => 'link' %>
+<% end -%>

@@ -1,0 +1,46 @@
+
+<div class="table">
+  <table class="listing form" cellpadding="0" cellspacing="0">
+    <tr>
+			<th colspan="2">ProjectImage</th>
+		</tr>
+					<tr>
+				<td><strong>created_at</strong></td>
+				<td><%= @project_image.created_at %></td>
+			</tr>
+					<tr>
+				<td><strong>updated_at</strong></td>
+				<td><%= @project_image.updated_at %></td>
+			</tr>
+					<tr>
+				<td><strong>featured</strong></td>
+				<td><%= @project_image.featured %></td>
+			</tr>
+					<tr>
+				<td><strong>project_id</strong></td>
+				<td><%= @project_image.project_id %></td>
+			</tr>
+					<tr>
+				<td><strong>image_file_name</strong></td>
+				<td><%= @project_image.image_file_name %></td>
+			</tr>
+					<tr>
+				<td><strong>image_content_type</strong></td>
+				<td><%= @project_image.image_content_type %></td>
+			</tr>
+					<tr>
+				<td><strong>image_file_size</strong></td>
+				<td><%= @project_image.image_file_size %></td>
+			</tr>
+					<tr>
+				<td><strong>image_updated_at</strong></td>
+				<td><%= @project_image.image_updated_at %></td>
+			</tr>
+			</table>
+</div>
+
+<div class="actions">
+	<%= link_to 'List', admin_project_images_path, :class => "action list" %> |
+	<%= link_to 'Edit', edit_admin_project_image_path(@project_image), :class => "action edit" %> |
+	<%= link_to 'Destroy', admin_project_image_path(@project_image), :method => :delete, :confirm => "Are you sure?", :class => "action destroy" %>
+</div>

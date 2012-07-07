@@ -1,0 +1,95 @@
+<div class="table">
+  <table class="listing" cellpadding="0" cellspacing="0">
+    <tr>
+      <th>created_at</th>
+      <th>updated_at</th>
+      <th>name</th>
+      <th>facebook</th>
+      <th>twitter</th>
+      <th>admin</th>
+      <th>manage_project_ids</th>
+      <th>manage_sketch_ids</th>
+      <th>project_ids</th>
+      <th>sketch_ids</th>
+      <th>email</th>
+      <th>remember_created_at</th>
+      <th>reset_password_token</th>
+      <th>reset_password_sent_at</th>
+      <th>sign_in_count</th>
+      <th>current_sign_in_at</th>
+      <th>last_sign_in_at</th>
+      <th>current_sign_in_ip</th>
+      <th>last_sign_in_ip</th>
+    </tr>
+    <% @members.each do |member| -%>
+      <tr>
+        <td>
+          <%= member.created_at.strftime("%Y.%m.%d") %>
+        </td>
+        <td>
+          <%= member.updated_at.strftime("%Y.%m.%d") %>
+        </td>
+        <td>
+          <%= link_to "#{member.name}", admin_member_path(member) %>
+        </td>
+        <td>
+          <%= link_to member.facebook,"https://facebook.com/#{member.facebook}", :target => "_blank" %>
+        </td>
+        <td>
+          <%= link_to member.twitter, "http://twitter.com/#{member.twitter}", :target => "_blank" if member.twitter && member.twitter.length > 0 %>
+        </td>
+        <td>
+          <%= member.admin %>
+        </td>
+        <td>
+          <%=raw  member.manage_project_ids.map {|pid| p=Project.find(pid); link_to(p.title, admin_project_path(p))}.join(",") %>
+        </td>
+        <td>
+          <%= member.manage_sketch_ids %>
+        </td>
+        <td>
+          <%= member.project_ids %>
+        </td>
+        <td>
+          <%= member.sketch_ids %>
+        </td>
+        <td>
+          <%= member.email %>
+        </td>
+        <td>
+          <%= member.remember_created_at %>
+        </td>
+        <td>
+          <%= member.reset_password_token %>
+        </td>
+        <td>
+          <%= member.reset_password_sent_at %>
+        </td>
+        <td>
+          <%= member.sign_in_count %>
+        </td>
+        <td>
+          <%= member.current_sign_in_at %>
+        </td>
+        <td>
+          <%= member.last_sign_in_at %>
+        </td>
+        <td>
+          <%= member.current_sign_in_ip %>
+        </td>
+        <td>
+          <%= member.last_sign_in_ip %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @members.empty? %>
+      <tr>
+        <td colspan="20">No records</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="actions">
+  <a href="<%= new_admin_member_path %>" class="action add">New Member</a>
+</div>

@@ -1,0 +1,49 @@
+
+<%= form_for [:admin, @project] do |f| %>
+  <div class="table">
+    <table class="listing form" cellpadding="0" cellspacing="0">
+      <th class="full" colspan="2">Adding a new Project</th>
+      <tr>
+        <td><strong>title</strong></td>
+        <td>
+          <%= f.text_field :title%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>description</strong></td>
+        <td>
+          <%= f.text_area :description%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>mail</strong></td>
+        <td>
+          <%= f.text_field :mail%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>manager_ids</strong></td>
+        <td>
+          <%=raw Member.all.map {|m| check_box_tag(:"manager_ids[]", m.id)+ " #{m.name}"}.join(" ")%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>designer_ids</strong></td>
+        <td>
+          <%=raw Member.all.map {|m| check_box_tag(:"designer_ids[]", m.id)+ " #{m.name}"}.join(" ")%>
+
+        </td>
+      </tr>
+      <tr>
+        <td><strong>developer_ids</strong></td>
+        <td>
+          <%=raw Member.all.map {|m| check_box_tag(:"developer_ids[]", m.id)+ " #{m.name}"}.join(" ")%>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end -%>

@@ -1,0 +1,43 @@
+<div class="table">
+	<table class="listing" cellpadding="0" cellspacing="0">
+		<tr>
+							<th>title</th>
+							<th>description</th>
+							<th>created_at</th>
+							<th>manager_ids</th>
+							<th>designer_ids</th>
+							<th>member_ids</th>
+					</tr>
+		<% @sketches.each do |sketch| -%>
+			<tr>
+									<td>
+													<%= link_to "#{sketch.title}", admin_sketch_path(sketch) %>
+											</td>
+									<td>
+													<%= sketch.description %>
+											</td>
+									<td>
+													<%= sketch.created_at %>
+											</td>
+									<td>
+													<%= sketch.manager_ids %>
+											</td>
+									<td>
+													<%= sketch.designer_ids %>
+											</td>
+									<td>
+													<%= sketch.member_ids %>
+											</td>
+							</tr>
+    <% end %>
+		<% if @sketches.empty? %>
+      <tr>
+				<td colspan="6">No records</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="actions">
+	<a href="<%= new_admin_sketch_path %>" class="action add">New Sketch</a>
+</div>
