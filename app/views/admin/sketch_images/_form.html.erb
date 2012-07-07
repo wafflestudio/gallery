@@ -1,0 +1,60 @@
+
+<%= form_for [:admin, @sketch_image] do |f| %>
+  <div class="table">
+    <table class="listing form" cellpadding="0" cellspacing="0">
+			<th class="full" colspan="2">Adding a new SketchImage</th>
+							<tr>
+					<td><strong>created_at</strong></td>
+					<td>
+						<%= f.text_field :created_at%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>updated_at</strong></td>
+					<td>
+						<%= f.text_field :updated_at%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>featured</strong></td>
+					<td>
+						<%= f.text_field :featured%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>sketch_id</strong></td>
+					<td>
+						<%= f.text_field :sketch_id%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>image_file_name</strong></td>
+					<td>
+						<%= f.text_field :image_file_name%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>image_content_type</strong></td>
+					<td>
+						<%= f.text_field :image_content_type%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>image_file_size</strong></td>
+					<td>
+						<%= f.text_field :image_file_size%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>image_updated_at</strong></td>
+					<td>
+						<%= f.text_field :image_updated_at%>
+					</td>
+				</tr>
+				
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end -%>

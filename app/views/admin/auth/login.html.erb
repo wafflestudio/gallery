@@ -1,0 +1,22 @@
+<div class="table">
+  <%= form_tag admin_authorize_path do %>
+    <table class="listing form" cellspacing="0" cellpadding="0">
+      <tr>
+        <th class="full" colspan="2">Sign in</th>
+      </tr>
+
+      <tr>
+        <td><strong>ID</strong></td>
+        <td><%= text_field_tag :login, nil, :class => 'text' %></td>
+      </tr>
+
+      <tr>
+        <td><strong>Password</strong></td>
+        <td><%= password_field_tag :password, nil, :class => 'text' %></td>
+      </tr>
+    </table>
+    <div class="select" style="text-align:center;">
+      <%= submit_tag 'submit' %>
+    </div>
+  <% end -%>
+</div>

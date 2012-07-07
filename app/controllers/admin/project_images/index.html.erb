@@ -1,0 +1,51 @@
+<div class="table">
+  <table class="listing" cellpadding="0" cellspacing="0">
+    <tr>
+      <th>created_at</th>
+      <th>updated_at</th>
+      <th>featured</th>
+      <th>project_id</th>
+      <th>image_file_name</th>
+      <th>image_content_type</th>
+      <th>image_file_size</th>
+      <th>image_updated_at</th>
+    </tr>
+    <% @project_images.each do |project_image| -%>
+      <tr>
+        <td>
+          <%= project_image.created_at.strftime("%Y.%m.%d") %>
+        </td>
+        <td>
+          <%= project_image.updated_at.strftime("%Y.%m.%d") %>
+        </td>
+        <td>
+          <%= project_image.featured.to_s %>
+        </td>
+        <td>
+          <%= p=project_image.project; link_to p.title, admin_project_path(p) %>
+        </td>
+        <td>
+          <%= link_to project_image.image_file_name, project_image.image.url %>
+        </td>
+        <td>
+          <%= project_image.image_content_type %>
+        </td>
+        <td>
+          <%= project_image.image_file_size %>
+        </td>
+        <td>
+          <%= project_image.image_updated_at.strftime("%Y.%m.%d") %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @project_images.empty? %>
+      <tr>
+        <td colspan="8">No records</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="actions">
+  <a href="<%= new_admin_project_image_path %>" class="action add">New ProjectImage</a>
+</div>

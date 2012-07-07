@@ -3,7 +3,7 @@
 
 <div id="slider">
 	<% @project.project_images.each do |p| %>
-		<div><%= image_tag(p.image.url) %></div>
+		<div><%= image_tag(p.image.url(:width400)) %></div>
 	<% end -%>
 </div> <!--slider-->
 

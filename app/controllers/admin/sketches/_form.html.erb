@@ -1,0 +1,48 @@
+
+<%= form_for [:admin, @sketch] do |f| %>
+  <div class="table">
+    <table class="listing form" cellpadding="0" cellspacing="0">
+			<th class="full" colspan="2">Adding a new Sketch</th>
+							<tr>
+					<td><strong>title</strong></td>
+					<td>
+						<%= f.text_field :title%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>description</strong></td>
+					<td>
+						<%= f.text_field :description%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>created_at</strong></td>
+					<td>
+						<%= f.text_field :created_at%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>manager_ids</strong></td>
+					<td>
+						<%= f.text_field :manager_ids%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>designer_ids</strong></td>
+					<td>
+						<%= f.text_field :designer_ids%>
+					</td>
+				</tr>
+							<tr>
+					<td><strong>member_ids</strong></td>
+					<td>
+						<%= f.text_field :member_ids%>
+					</td>
+				</tr>
+				
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end -%>

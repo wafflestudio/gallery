@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require 'digest/sha2'
+
+admins = []
+begin
+  f = File.open("config/admin.yml","r")
+  admins = YAML::load f.read
+  f.close
+rescue 
+end
+
+id = ""
+
+while true do 
+  print 'New Admin ID : '
+  line = readline
+  id = line.gsub /\n/,''
+
+  break unless admins.find {|u| u[:id] == id}
+  puts "#{id} already exists."
+end
+
+while true do 
+
+  print 'Password : '
+  system "stty -echo"
+  line = readline
+  pwd1 = line.gsub /\n/,''
+  system "stty echo" 
+
+  print "\nPassword Confirm : "
+  system "stty -echo"
+  line = readline
+  pwd2 = line.gsub /\n/,''
+  system "stty echo" 
+
+  if pwd1 == pwd2
+    break
+  end
+
+  puts "\nPasswords don't match."
+end
+
+
+#make admin
+salt = [Array.new(8){rand(256).chr}.join].pack('m').chomp
+hash = Digest::SHA512.hexdigest(pwd1 + salt)
+new_admin = {:id => id, :password_salt => salt, :password_hash => hash}
+
+admins << new_admin
+
+f = File.open("config/admin.yml", "w")
+f.write YAML::dump admins
+f.close
+
+puts "\nNew admin #{id} created."

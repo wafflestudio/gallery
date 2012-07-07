@@ -1,0 +1,86 @@
+<%= form_for [:admin, @member] do |f| %>
+  <div class="table">
+    <table class="listing form" cellpadding="0" cellspacing="0">
+      <th class="full" colspan="2">Adding a new Member</th>
+      <tr>
+        <td><strong>name</strong></td>
+        <td>
+          <%= f.text_field :name%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>facebook</strong></td>
+        <td>
+          <%= f.text_field :facebook%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>twitter</strong></td>
+        <td>
+          <%= f.text_field :twitter%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>admin</strong></td>
+        <td>
+          <%= f.check_box :admin%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>manage_projects</strong></td>
+        <td>
+          <% Project.all.each do |project| -%>
+            <%= check_box_tag("member[manage_project_ids][]", project.id) + project.title %> 
+          <% end -%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>manage_sketchs</strong></td>
+        <td>
+          <% Sketch.all.each do |sketch| -%>
+            <%= check_box_tag("member[manage_sketch_ids][]", sketch.id) + sketch.title %> 
+          <% end -%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>projects</strong></td>
+        <td>
+          <% Project.all.each do |project| -%>
+            <%= check_box_tag("member[project_ids][]", project.id) + project.title %> 
+          <% end -%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>sketchs</strong></td>
+        <td>
+          <% Sketch.all.each do |sketch| -%>
+            <%= check_box_tag("member[sketch_ids][]", sketch.id) + sketch.title %> 
+          <% end -%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>password</strong></td>
+        <td>
+          <%= f.password_field :password%>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>password_confirm</strong></td>
+        <td>
+          <%= f.password_field :password_confirmation%>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td><strong>email</strong></td>
+        <td>
+          <%= f.text_field :email%>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end -%>

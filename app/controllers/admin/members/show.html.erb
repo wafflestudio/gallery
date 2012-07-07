@@ -1,0 +1,97 @@
+<div class="top-bar">
+	<h1><%= @member.name%></h1>
+</div>
+
+<div class="table">
+  <table class="listing form" cellpadding="0" cellspacing="0">
+    <tr>
+			<th colspan="2">Member</th>
+		</tr>
+					<tr>
+				<td><strong>created_at</strong></td>
+				<td><%= @member.created_at %></td>
+			</tr>
+					<tr>
+				<td><strong>updated_at</strong></td>
+				<td><%= @member.updated_at %></td>
+			</tr>
+					<tr>
+				<td><strong>name</strong></td>
+				<td><%= @member.name %></td>
+			</tr>
+					<tr>
+				<td><strong>facebook</strong></td>
+				<td><%= @member.facebook %></td>
+			</tr>
+					<tr>
+				<td><strong>twitter</strong></td>
+				<td><%= @member.twitter %></td>
+			</tr>
+					<tr>
+				<td><strong>admin</strong></td>
+				<td><%= @member.admin %></td>
+			</tr>
+					<tr>
+				<td><strong>manage_project_ids</strong></td>
+				<td><%= @member.manage_project_ids %></td>
+			</tr>
+					<tr>
+				<td><strong>manage_sketch_ids</strong></td>
+				<td><%= @member.manage_sketch_ids %></td>
+			</tr>
+					<tr>
+				<td><strong>project_ids</strong></td>
+				<td><%= @member.project_ids %></td>
+			</tr>
+					<tr>
+				<td><strong>sketch_ids</strong></td>
+				<td><%= @member.sketch_ids %></td>
+			</tr>
+					<tr>
+				<td><strong>email</strong></td>
+				<td><%= @member.email %></td>
+			</tr>
+					<tr>
+				<td><strong>encrypted_password</strong></td>
+				<td><%= @member.encrypted_password %></td>
+			</tr>
+					<tr>
+				<td><strong>remember_created_at</strong></td>
+				<td><%= @member.remember_created_at %></td>
+			</tr>
+					<tr>
+				<td><strong>reset_password_token</strong></td>
+				<td><%= @member.reset_password_token %></td>
+			</tr>
+					<tr>
+				<td><strong>reset_password_sent_at</strong></td>
+				<td><%= @member.reset_password_sent_at %></td>
+			</tr>
+					<tr>
+				<td><strong>sign_in_count</strong></td>
+				<td><%= @member.sign_in_count %></td>
+			</tr>
+					<tr>
+				<td><strong>current_sign_in_at</strong></td>
+				<td><%= @member.current_sign_in_at %></td>
+			</tr>
+					<tr>
+				<td><strong>last_sign_in_at</strong></td>
+				<td><%= @member.last_sign_in_at %></td>
+			</tr>
+					<tr>
+				<td><strong>current_sign_in_ip</strong></td>
+				<td><%= @member.current_sign_in_ip %></td>
+			</tr>
+					<tr>
+				<td><strong>last_sign_in_ip</strong></td>
+				<td><%= @member.last_sign_in_ip %></td>
+			</tr>
+			</table>
+</div>
+
+<div class="actions">
+	<%= link_to 'List', admin_members_path, :class => "action list" %> |
+	<%= link_to 'Edit', edit_admin_member_path(@member), :class => "action edit" %> |
+	<%= link_to 'Destroy', admin_member_path(@member), :method => :delete, :confirm => "Are you sure?", :class => "action destroy" %>
+</div>

@@ -1,0 +1,47 @@
+<div class="table">
+  <table class="listing" cellpadding="0" cellspacing="0">
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>mail</th>
+      <th>created_at</th>
+      <th>managers</th>
+      <th>designers</th>
+      <th>developers</th>
+    </tr>
+    <% @projects.each do |project| -%>
+      <tr>
+        <td>
+          <%= link_to "#{project.title}", admin_project_path(project) %>
+        </td>
+        <td>
+          <%= project.description %>
+        </td>
+        <td>
+          <%= project.mail %>
+        </td>
+        <td>
+          <%= project.created_at %>
+        </td>
+        <td>
+          <%=raw (project.manager_ids||[]).map {|id| m=Member.find(id); link_to(m.name, admin_member_path(m))}.join(",") %>
+        </td>
+        <td>
+          <%=raw (project.designer_ids||[]).map {|id| m=Member.find(id); link_to(m.name, admin_member_path(m))}.join(",") %>
+        </td>
+        <td>
+          <%=raw (project.developer_ids||[]).map {|id| m=Member.find(id); link_to(m.name, admin_member_path(m))}.join(",") %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @projects.empty? %>
+      <tr>
+        <td colspan="7">No records</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="actions">
+  <a href="<%= new_admin_project_path %>" class="action add">New Project</a>
+</div>
