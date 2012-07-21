@@ -87,10 +87,26 @@ ul { padding: 0; margin: 0; }
 
 .members {
 	float: left; 
-	width: 225px; }
+	width: 198px;
+  margin-left: 25px;
+  border-right: 2px solid #C6C6C6;
+  ul li {
+    font-size: 9pt;
+  }
+}
+h3.name_label {
+  display: inline;
+  font-weight: normal;
+  color: #C400FC;
+ }
 .details {
 	float: left;
-	width: 225px; }
+  padding-left: 20px;
+	width: 180px;
+  ul li {
+    font-size: 9pt;
+  }
+}
 
 #rightnote {
 	position: absolute;

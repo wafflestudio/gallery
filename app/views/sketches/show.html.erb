@@ -8,10 +8,9 @@
 </div> <!--slider-->
 
 <div class="members">
-	<h2>members</h2>
 	<ul>
 		<% @sketch.designers.each do |d| %>
-		<li><%= d.name %> design</li>
+      <li><h3 class="name_label">designer</h3> | <%= d.name %></li>
 		<% end -%>
 	</ul>
 </div>

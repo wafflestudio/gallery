@@ -8,13 +8,12 @@
 </div> <!--slider-->
 
 <div class="members">
-	<h2>members</h2>
 	<ul>
 		<% @project.developers.each do |d| %>
-		<li><%= d.name %>development</li>
+      <li><h3 class="name_label">development</h3> | <%= d.name %></li>
 		<% end -%>
 		<% @project.designers.each do |d| %>
-		<li><%= d.name %> design</li>
+      <li><h3 class="name_label">design</h3> | <%= d.name %></li>
 		<% end -%>
 	</ul>
 </div>
