@@ -9,7 +9,6 @@ class Member
   field :admin, :type => Boolean, default: false
 
   has_and_belongs_to_many :manage_projects, class_name: "Project", inverse_of: :managers
-  has_and_belongs_to_many :manage_sketches, class_name: "Sketch", inverse_of: :managers
   has_and_belongs_to_many :design_projects, class_name: "Project", inverse_of: :designers
   has_and_belongs_to_many :dev_projects, class_name: "Project", inverse_of: :developers
   has_and_belongs_to_many :sketches
