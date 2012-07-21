@@ -28,6 +28,7 @@ gem 'mongoid_spacial'
 gem 'devise'
 gem 'paperclip'
 gem 'haml'
+gem 'rails_admin'
 
 
 # To use ActiveModel has_secure_password
