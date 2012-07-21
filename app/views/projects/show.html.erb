@@ -3,17 +3,18 @@
 
 <div id="slider">
 	<% @project.project_images.each do |p| %>
-		<div><%= image_tag(p.image.url(:width400)) %></div>
+		<div><%= image_tag(p.image.url(:large)) %></div>
 	<% end -%>
 </div> <!--slider-->
 
 <div class="members">
+  <h2>members</h2>
 	<ul>
-		<% @project.developers.each do |d| %>
-      <li><h3 class="name_label">development</h3> | <%= d.name %></li>
-		<% end -%>
-		<% @project.designers.each do |d| %>
-      <li><h3 class="name_label">design</h3> | <%= d.name %></li>
+    <% @project.members.each do |d| %>
+      <li>
+        <%= d.name %> <h3 class="name_label"><%= @project.roles(d) %></h3>
+        <span class="email"><%= d.email[0..-18] %></span>
+      </li>
 		<% end -%>
 	</ul>
 </div>

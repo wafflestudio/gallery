@@ -9,7 +9,7 @@ class SketchImage
   belongs_to :sketch
 
   def self.styles_dict
-    {:large => "500x300", :small => "100x100"}
+    {:large => "400x300", :small => "100x100"}
   end
 
   include ::ItemImageTemplate

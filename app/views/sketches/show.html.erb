@@ -3,14 +3,18 @@
 
 <div id="slider">
 	<% @sketch.sketch_images.each do |p| %>
-		<div><%= image_tag(p.image.url) %></div>
+		<div><%= image_tag(p.image.url(:large)) %></div>
 	<% end -%>
 </div> <!--slider-->
 
 <div class="members">
+  <h2>members</h2>
 	<ul>
 		<% @sketch.designers.each do |d| %>
-      <li><h3 class="name_label">designer</h3> | <%= d.name %></li>
+      <li>
+        <%= d.name %> <h3 class="name_label">design</h3>
+        <span class="email"><%= d.email[0..-18] %></span>
+      </li>
 		<% end -%>
 	</ul>
 </div>

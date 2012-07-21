@@ -71,10 +71,6 @@ ul { padding: 0; margin: 0; }
 	text-align: center;
 	overflow: hidden; }
 
-#slider div img {
-	width: 400px;
-	height: 300px;
-	}
 
 .bx-prev {
 	position: absolute;
@@ -90,15 +86,38 @@ ul { padding: 0; margin: 0; }
 	width: 198px;
   margin-left: 25px;
   border-right: 2px solid #C6C6C6;
+  h2 {
+    font-weight: normal;
+    display: inline;
+    color: #C400FC;
+    font-size: 9pt;
+    width: 60px;
+    float: left;
+    border-right: 1px solid black;
+    margin-right: 7px;
+    margin: 0;
+  }
+  ul {
+    margin-left: 7px;
+    float: left;
+    width: 125px;
+  }
   ul li {
     font-size: 9pt;
+    margin-bottom: 4px;
+    span.email {
+      display: block;
+      margin-left: 3px;
+      font-size: 8pt;
+    }
   }
 }
 h3.name_label {
+  font-size: 8pt;
   display: inline;
   font-weight: normal;
   color: #C400FC;
- }
+}
 .details {
 	float: left;
   padding-left: 20px;

@@ -14,8 +14,22 @@ class Project
   accepts_nested_attributes_for :project_images, :allow_destroy => true
   accepts_nested_attributes_for :designers
   accepts_nested_attributes_for :developers
+  accepts_nested_attributes_for :managers
 
   def members
-    (self.designers+self.developers).uniq
+    (self.designers+self.developers+self.managers).uniq
+  end
+  def roles(member)
+    res = ""
+      if self.managers.include?(member)
+        res += "direct, "
+      end
+      if self.designers.include?(member)
+        res += "design, "
+      end
+      if self.developers.include?(member)
+        res += "develop, "
+      end
+    return res[0..-3]
   end
 end

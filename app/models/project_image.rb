@@ -7,7 +7,7 @@ class ProjectImage
   field :featured, :type => Boolean
 
   def self.styles_dict
-    {:large => "500x300", :small => "100x100", :width400 => "400x"}
+    {:large => "400x300", :small => "100x100"}
   end
 
   belongs_to :project, :inverse_of => :project_images
