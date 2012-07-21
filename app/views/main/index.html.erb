@@ -12,7 +12,7 @@
       function loadImages (outer) {
         outer.imagesLoaded(function (){
           $imgouter.masonry({
-            itemSelector: '.imgbox', columnWidth : 20 }); 
+            itemSelector: '.imgbox', columnWidth : 21 }); 
         });
       }
 
@@ -84,13 +84,13 @@
     <div id="rightnote">
       <div id="list1" class="list">
         <p><img src="/assets/project_title.png" alt="Projects"></p>
-        <% 0.upto(@projects.count/5) do |j| -%>
+        <% 0.upto(@projects.count/4) do |j| -%>
           <div class="imgouter imgouter1 clearfix"> 
-            <% 0.upto(4) do |i| -%>
-              <% unless @projects[j*5+i].nil? -%>
+            <% 0.upto(3) do |i| -%>
+              <% unless @projects[j*4+i].nil? -%>
                 <div class="imgbox">
-                  <% Rails.logger.info @projects[j*5+i] %>
-                  <%= link_to image_tag(@projects[j*5+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*5+i]), :remote => true, :class => 'showproject'  unless @projects[j*5+i].project_images.first.nil? %>
+                  <% Rails.logger.info @projects[j*4+i] %>
+                  <%= link_to image_tag(@projects[j*4+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*4+i]), :remote => true, :class => 'showproject'  unless @projects[j*4+i].project_images.first.nil? %>
                 </div><!--imgbox-->
               <% else -%>
               <% end -%>
@@ -102,13 +102,13 @@
 
       <div id="list2" class="list">
         <p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
-        <% 0.upto(@sketches.count/5) do |j| -%>
+        <% 0.upto(@sketches.count/4) do |j| -%>
           <div class="imgouter imgouter2 clearfix">
-            <% 0.upto(4) do |i| -%>
-              <% unless @sketches[j*5+i].nil? -%>
+            <% 0.upto(3) do |i| -%>
+              <% unless @sketches[j*4+i].nil? -%>
                 <div class="imgbox">
-                  <% Rails.logger.info @sketches[j*5+i] %>
-                  <%= link_to image_tag(@sketches[j*5+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*5+i]), :remote => true, :class => 'showproject'  unless @sketches[j*5+i].sketch_images.first.nil? %>
+                  <% Rails.logger.info @sketches[j*4+i] %>
+                  <%= link_to image_tag(@sketches[j*4+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*4+i]), :remote => true, :class => 'showproject'  unless @sketches[j*4+i].sketch_images.first.nil? %>
                 </div><!--imgbox-->
               <% else -%>
               <% end -%>
