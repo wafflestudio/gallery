@@ -1,17 +1,6 @@
 Gallery::Application.routes.draw do
 
-  namespace :admin do
-  match '/' => 'admin#index'
-  match 'login' => 'auth#login'
-  match 'logout' => 'auth#logout'
-  match 'authorize' => 'auth#authorize'
-	resources :members
-resources :projects
-resources :project_images
-resources :sketches
-resources :sketch_images
-end
-
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :members
 	get "main/index"
@@ -19,6 +8,18 @@ end
 	match 'main/:id' => 'main#show', :via => :get, :as => :main_show
   match 'projects/:id' => 'projects#show', :via => :get, :as => :projects_show
   match 'sketches/:id' => 'sketches#show', :via => :get, :as => :sketches_show
+
+#  namespace :admin do
+#    match '/' => 'admin#index'
+#    resources :projects do
+#      resources :project_images do
+#        collection do
+#          post 'sort'
+#        end
+#      end
+#    end
+#    resources :sketches
+#  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

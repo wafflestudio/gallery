@@ -1,127 +1,127 @@
-
 <% content_for :scripts do -%>
-<%= javascript_include_tag '/assets/jquery.masonry.min.js' %>
-<%= javascript_include_tag '/assets/jquery.imagesloaded.js' %>
-<%= javascript_include_tag '/assets/jquery.bxSlider.min.js' %>
+  <%= javascript_include_tag '/assets/jquery.masonry.min.js' %>
+  <%= javascript_include_tag '/assets/jquery.imagesloaded.js' %>
+  <%= javascript_include_tag '/assets/jquery.bxSlider.min.js' %>
 
-<script type="text/javascript">
-  $(function() {
-		var $imgouter = $('.imgouter');
-		var $imgouter1 = $('.imgouter1'); 
-		var $imgouter2 = $('.imgouter2'); 
+  <script type="text/javascript">
+    $(function() {
+      var $imgouter = $('.imgouter');
+      var $imgouter1 = $('.imgouter1'); 
+      var $imgouter2 = $('.imgouter2'); 
 
-		function loadImages (outer) {
-			outer.imagesLoaded(function (){
-					$imgouter.masonry({
-						itemSelector: '.imgbox', columnWidth : 20 }); 
-			});
-		}
+      function loadImages (outer) {
+        outer.imagesLoaded(function (){
+          $imgouter.masonry({
+            itemSelector: '.imgbox', columnWidth : 20 }); 
+        });
+      }
 
-		function wait(ms){
-						var to_time = new Date().getTime();
-						while( new Date().getTime() < to_time+ms ){}; }
-	
-		var fade1Var, fade2Var;
+      function wait(ms){
+        var to_time = new Date().getTime();
+        while( new Date().getTime() < to_time+ms ){};
+      }
 
-		function fade1() {
-			fade1Var = setInterval(function (){
-					var show1 = $imgouter1.index($('.imgouter1:visible').eq(0));
-					$imgouter1.eq(show1).fadeOut('normal');
-	
-					setTimeout (function (){
-						if ( $imgouter1.size()==(show1+1) ) { 
-										$imgouter1.eq(0).fadeIn('normal') }
-						else { $imgouter1.eq(show1+1).fadeIn('normal'); }
-						loadImages($imgouter1);
-					}, 1000);
-				}, 6000);
-		}
-	
-		function fade2() {
-			fade2Var = setInterval(function (){
-					var show2 = $imgouter2.index($('.imgouter2:visible').eq(0));
-					$imgouter2.eq(show2).fadeOut('normal');
-											
-					setTimeout (function (){
-						if ( $imgouter2.size()==(show2+1) ) {
-										$imgouter2.eq(0).fadeIn('normal') }
-						else { $imgouter2.eq(show2+1).fadeIn('normal'); }
-						loadImages($imgouter2);
-					}, 1000);
-			}, 6000);
-		}
+      var fade1Var, fade2Var;
 
-    $imgouter1.eq(0).show();
-    $imgouter2.eq(0).show();
+      function fade1() {
+        fade1Var = setInterval(function (){
+          var show1 = $imgouter1.index($('.imgouter1:visible').eq(0));
+          $imgouter1.eq(show1).fadeOut('normal');
 
-		loadImages($imgouter);
-		fade1();
-		wait(3000);
-		fade2();
+          setTimeout (function (){
+            if ( $imgouter1.size()==(show1+1) ) { 
+              $imgouter1.eq(0).fadeIn('normal') }
+              else { $imgouter1.eq(show1+1).fadeIn('normal'); }
+              loadImages($imgouter1);
+          }, 1000);
+        }, 6000);
+      }
 
-		$('.imgouter1').hover(function(){ clearInterval(fade1Var);} , fade1);
-		$('.imgouter2').hover(function(){ clearInterval(fade2Var);} , fade2);
+      function fade2() {
+        fade2Var = setInterval(function (){
+          var show2 = $imgouter2.index($('.imgouter2:visible').eq(0));
+          $imgouter2.eq(show2).fadeOut('normal');
 
-		$('.showproject').ajaxComplete(function(e, xhr, setting) {
-    	$('#leftnote').html(xhr.responseText);
-			$('#slider').bxSlider( { 
-							prevImage: '/assets/leftbutton.png',
-							nextImage: '/assets/rightbutton.png' });
+          setTimeout (function (){
+            if ( $imgouter2.size()==(show2+1) ) {
+              $imgouter2.eq(0).fadeIn('normal') }
+              else { $imgouter2.eq(show2+1).fadeIn('normal'); }
+              loadImages($imgouter2);
+          }, 1000);
+        }, 6000);
+      }
+
+      $imgouter1.eq(0).show();
+      $imgouter2.eq(0).show();
+
+      loadImages($imgouter);
+      fade1();
+      wait(3000);
+      fade2();
+
+      $('.imgouter1').hover(function(){ clearInterval(fade1Var);} , fade1);
+      $('.imgouter2').hover(function(){ clearInterval(fade2Var);} , fade2);
+
+      $('.showproject').ajaxComplete(function(e, xhr, setting) {
+        $('#leftnote').html(xhr.responseText);
+        $('#slider').bxSlider( { 
+          prevImage: '/assets/leftbutton.png',
+        nextImage: '/assets/rightbutton.png' });
+      });
     });
-  });
-</script>
+  </script>
 <% end -%>
 
 <div id="container">
-	<div id="header">
-		<img src="/assets/wafflestudio.png" alt="WaffleStudio">
-	</div>
+  <div id="header">
+    <img src="/assets/wafflestudio.png" alt="WaffleStudio">
+  </div>
 
-	<div id="note">
-		<div id="leftnote">
-		</div><!--Leftnote-->
+  <div id="note">
+    <div id="leftnote">
+    </div><!--Leftnote-->
 
-		<div id="rightnote">
-			<div id="list1" class="list">
-				<p><img src="/assets/project_title.png" alt="Projects"></p>
-				<% 0.upto(@projects.count/5) do |j| -%>
-					<div class="imgouter imgouter1 clearfix"> 
-					<% 0.upto(4) do |i| -%>
-						<% unless @projects[j*5+i].nil? -%>
-							<div class="imgbox">
-							<% Rails.logger.info @projects[j*5+i] %>
-				 			<%= link_to image_tag(@projects[j*5+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*5+i]), :remote => true, :class => 'showproject'  unless @projects[j*5+i].project_images.first.nil? %>
-							</div><!--imgbox-->
-						<% else -%>
-						<% end -%>
-					<% end -%>
-					</div> <!--imgouter-->
-				<% end -%>
+    <div id="rightnote">
+      <div id="list1" class="list">
+        <p><img src="/assets/project_title.png" alt="Projects"></p>
+        <% 0.upto(@projects.count/5) do |j| -%>
+          <div class="imgouter imgouter1 clearfix"> 
+            <% 0.upto(4) do |i| -%>
+              <% unless @projects[j*5+i].nil? -%>
+                <div class="imgbox">
+                  <% Rails.logger.info @projects[j*5+i] %>
+                  <%= link_to image_tag(@projects[j*5+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*5+i]), :remote => true, :class => 'showproject'  unless @projects[j*5+i].project_images.first.nil? %>
+                </div><!--imgbox-->
+              <% else -%>
+              <% end -%>
+            <% end -%>
+          </div> <!--imgouter-->
+        <% end -%>
 
-			</div> <!--list1-->
+      </div> <!--list1-->
 
-			<div id="list2" class="list">
-				<p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
-				<% 0.upto(@sketches.count/5) do |j| -%>
-					<div class="imgouter imgouter2 clearfix">
-					<% 0.upto(4) do |i| -%>
-						<% unless @sketches[j*5+i].nil? -%>
-							<div class="imgbox">
-							<% Rails.logger.info @sketches[j*5+i] %>
-							<%= link_to image_tag(@sketches[j*5+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*5+i]), :remote => true, :class => 'showproject'  unless @sketches[j*5+i].sketch_images.first.nil? %>
-							</div><!--imgbox-->
-						<% else -%>
-						<% end -%>
-					<% end -%>
-					</div> <!--imgouter-->
-				<% end -%>
+      <div id="list2" class="list">
+        <p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
+        <% 0.upto(@sketches.count/5) do |j| -%>
+          <div class="imgouter imgouter2 clearfix">
+            <% 0.upto(4) do |i| -%>
+              <% unless @sketches[j*5+i].nil? -%>
+                <div class="imgbox">
+                  <% Rails.logger.info @sketches[j*5+i] %>
+                  <%= link_to image_tag(@sketches[j*5+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*5+i]), :remote => true, :class => 'showproject'  unless @sketches[j*5+i].sketch_images.first.nil? %>
+                </div><!--imgbox-->
+              <% else -%>
+              <% end -%>
+            <% end -%>
+          </div> <!--imgouter-->
+        <% end -%>
 
-			</div><!--list2-->
-		</div><!--Rightnote-->
-	</div><!--Note-->
+      </div><!--list2-->
+    </div><!--Rightnote-->
+  </div><!--Note-->
 
-	<div id="footer">
-		Powered by <a href="http://www.wafflestudio.com" target="_blank">Wafflestudio</a> | Designed by JR
-	</div><!--footer-->
+  <div id="footer">
+    Powered by <a href="http://www.wafflestudio.com" target="_blank">Wafflestudio</a> | Designed by JR
+  </div><!--footer-->
 </div><!--Container-->
 

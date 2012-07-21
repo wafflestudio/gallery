@@ -6,11 +6,12 @@ class Member
   field :name, :type => String
   field :facebook, :type => String
   field :twitter, :type => String
-  field :admin, :type => Boolean
+  field :admin, :type => Boolean, default: false
 
   has_and_belongs_to_many :manage_projects, class_name: "Project", inverse_of: :managers
   has_and_belongs_to_many :manage_sketches, class_name: "Sketch", inverse_of: :managers
-  has_and_belongs_to_many :projects
+  has_and_belongs_to_many :design_projects, class_name: "Project", inverse_of: :designers
+  has_and_belongs_to_many :dev_projects, class_name: "Project", inverse_of: :developers
   has_and_belongs_to_many :sketches
 
   # Include default devise modules. Others available are:
