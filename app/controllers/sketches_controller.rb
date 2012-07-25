@@ -6,6 +6,10 @@ class SketchesController < ApplicationController
 		render :layout => false
 	end
 
+  def index
+    render :layout => false
+  end
+
 private
   def find_or_build_sketch
     @sketch = params[:id] ? Sketch.find(params[:id]) : Sketch.new(params[:sketch])

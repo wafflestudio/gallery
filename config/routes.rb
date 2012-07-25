@@ -8,6 +8,8 @@ Gallery::Application.routes.draw do
 	match 'main/:id' => 'main#show', :via => :get, :as => :main_show
   match 'projects/:id' => 'projects#show', :via => :get, :as => :projects_show
   match 'sketches/:id' => 'sketches#show', :via => :get, :as => :sketches_show
+  match 'projects' => 'projects#index', :via => :get, :as => :projects
+  match 'sketches' => 'sketches#index', :via => :get, :as => :sketches
 
 #  namespace :admin do
 #    match '/' => 'admin#index'

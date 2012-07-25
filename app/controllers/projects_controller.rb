@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		render :layout => false
 	end
+  def index
+    render :layout => false
+  end
 
 private
   def find_or_build_project
