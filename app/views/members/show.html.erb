@@ -7,25 +7,25 @@
   <span id="contact_label">--- contact ---</span>
 
   <table id="member_info">
-    <% unless @member.email.nil? %>
+    <% unless @member.email.nil? || @member.email == "" %>
     <tr>
       <th>mail</th>
       <td><%= @member.email %></td>
     </tr>
     <% end -%>
-    <% unless @member.facebook.nil? %>
+    <% unless @member.facebook.nil? || @member.facebook == "" %>
       <tr>
         <th>facebook</th>
         <td><%= @member.facebook %></td>
       </tr>
     <% end -%>
-    <% unless @member.twitter.nil? %>
+    <% unless @member.twitter.nil? || @member.twitter == "" %>
     <tr>
       <th>twitter</th>
       <td><%= @member.twitter %></td>
     </tr>
     <% end -%>
-    <% unless @member.phone.nil? %>
+    <% unless @member.phone.nil? || @member.phone == "" %>
     <tr>
       <th>phone</th>
       <td><%= @member.phone %></td>

@@ -88,7 +88,7 @@
     <div id="rightnote">
       <div id="list1" class="list">
         <p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
-        <% 0.upto(@sketches.count/4-1) do |j| -%>
+        <% 0.upto((@sketches.count-1)/4) do |j| -%>
           <div class="imgouter imgouter1 clearfix"> 
             <% 0.upto(3) do |i| -%>
               <% unless @sketches[j*4+i].nil? -%>
@@ -105,7 +105,7 @@
 
       <div id="list2" class="list">
         <p><img src="/assets/project_title.png" alt="Projects"></p>
-        <% 0.upto(@projects.count/4-1) do |j| -%>
+        <% 0.upto((@projects.count-1)/4) do |j| -%>
           <div class="imgouter imgouter2 clearfix">
             <% 0.upto(3) do |i| -%>
               <% unless @projects[j*4+i].nil? -%>
