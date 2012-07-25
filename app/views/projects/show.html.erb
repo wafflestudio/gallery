@@ -1,5 +1,5 @@
 
-<h1><%= @project.title %></h1>
+<h1><span class="project_title">project></span> <%= @project.title %></h1>
 
 <div id="slider">
 	<% @project.project_images.each do |p| %>
@@ -13,7 +13,7 @@
     <% @project.members.each do |d| %>
       <li>
         <%= d.name %> <h3 class="name_label"><%= @project.roles(d) %></h3>
-        <span class="email"><%= d.email[0..-18] %></span>
+        <span class="email"><%= d.email %></span>
       </li>
 		<% end -%>
 	</ul>

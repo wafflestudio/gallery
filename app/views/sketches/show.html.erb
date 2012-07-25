@@ -13,7 +13,7 @@
 		<% @sketch.designers.each do |d| %>
       <li>
         <%= d.name %> <h3 class="name_label">design</h3>
-        <span class="email"><%= d.email[0..-18] %></span>
+        <span class="email"><%= d.email %></span>
       </li>
 		<% end -%>
 	</ul>
