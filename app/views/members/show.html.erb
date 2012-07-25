@@ -1,0 +1,35 @@
+<div id="member_profile_box">
+  <%= image_tag "member_profile.png", :id => "member_profile_label" %>
+    <%= image_tag @member.photo.url(:large), :id => "member_photo" %>
+  <span id="member_name"><%= @member.name %></span>
+  <span id="member_organization"><%= @member.organization %></span>
+
+  <span id="contact_label">--- contact ---</span>
+
+  <table id="member_info">
+    <% unless @member.email.nil? %>
+    <tr>
+      <th>mail</th>
+      <td><%= @member.email %></td>
+    </tr>
+    <% end -%>
+    <% unless @member.facebook.nil? %>
+      <tr>
+        <th>facebook</th>
+        <td><%= @member.facebook %></td>
+      </tr>
+    <% end -%>
+    <% unless @member.twitter.nil? %>
+    <tr>
+      <th>twitter</th>
+      <td><%= @member.twitter %></td>
+    </tr>
+    <% end -%>
+    <% unless @member.phone.nil? %>
+    <tr>
+      <th>phone</th>
+      <td><%= @member.phone %></td>
+    </tr>
+    <% end -%>
+  </table>
+</div>

@@ -150,7 +150,7 @@ h3.name_label {
 
 .list {
 	width: 250px;
-	height: 270px;}
+	height: 300px;}
 
 .imgouter {
 	width: 210px;
@@ -171,6 +171,41 @@ h3.name_label {
 .imgbox {
 	float: left;
   margin: 2px;
+}
+
+// profile page -------------
+
+#member_profile_box {
+  #member_profile_label {
+    display: block;
+    margin: 10px auto 30px;
+  }
+  #member_photo {
+  box-shadow: 0 0 5px 5px #DADADA;
+    display: block;
+    padding: 5px;
+    margin: 20px auto;
+  }
+  #member_name {
+    text-align: center;
+    font-weight: bold;
+    display: block;
+  }
+  #member_organization {
+    text-align: center;
+    display: block;
+  }
+  #member_info {
+    margin: 0 auto;
+    border-collapse: collapse;
+    th {
+      border-right: 2px solid #B1B1B1;
+      width: 80px;
+    }
+    td {
+      padding-left: 20px;
+    }
+  }
 }
 
 .clearfix {

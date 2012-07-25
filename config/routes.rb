@@ -1,5 +1,7 @@
 Gallery::Application.routes.draw do
 
+  get "members/show"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :members
@@ -10,6 +12,7 @@ Gallery::Application.routes.draw do
   match 'sketches/:id' => 'sketches#show', :via => :get, :as => :sketches_show
   match 'projects' => 'projects#index', :via => :get, :as => :projects
   match 'sketches' => 'sketches#index', :via => :get, :as => :sketches
+  match 'members/:id' => 'members#show', :via => :get, :as => :member
 
 #  namespace :admin do
 #    match '/' => 'admin#index'

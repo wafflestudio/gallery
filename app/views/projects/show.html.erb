@@ -12,8 +12,10 @@
 	<ul>
     <% @project.members.each do |d| %>
       <li>
+      <%= link_to member_path(d), :style => "text-decoration: none; color: black;", :remote => true do %>
         <%= d.name %> <h3 class="name_label"><%= @project.roles(d) %></h3>
         <span class="email"><%= d.email %></span>
+      <% end -%>
       </li>
 		<% end -%>
 	</ul>
