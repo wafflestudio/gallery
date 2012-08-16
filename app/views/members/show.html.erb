@@ -4,7 +4,7 @@
   <span id="member_name"><%= @member.name %></span>
   <span id="member_organization"><%= @member.organization %></span>
 
-  <span id="contact_label">--- contact ---</span>
+  <%= image_tag "contact_label.png", :id => "contact_label" %>
 
   <table id="member_info">
     <% unless @member.email.nil? || @member.email == "" %>
