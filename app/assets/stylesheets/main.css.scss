@@ -69,7 +69,19 @@ ul { padding: 0; margin: 0; }
     margin-right: 22px;
   }
 }
-
+#intro_page {
+  width: 450px;
+  height: 650px;
+  background-color: #F0F0F0;
+  #intro {
+    margin: 0 auto;
+    width: 360px;
+    color: #9A9A9A;
+    #gal {
+      color: #BF32D6;
+    }
+  }
+}
 #leftnote {
 	position: absolute;
 	top: 80px;

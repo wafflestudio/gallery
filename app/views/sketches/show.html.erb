@@ -12,7 +12,7 @@
 	<ul>
 		<% @sketch.designers.each do |d| %>
       <li>
-      <%= link_to member_path(d), :remote => true do %>
+      <%= link_to member_path(d), :style => "text-decoration: none; color: black;", :remote => true do %>
         <%= d.name %> <h3 class="name_label">design</h3>
         <span class="email"><%= d.email %></span>
       <% end -%>
