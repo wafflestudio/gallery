@@ -71,8 +71,9 @@ ul { padding: 0; margin: 0; }
   width: 230px;
   height: 67px;
   a {
+    position: absolute;
     display: inline-block;
-    margin-right: 22px;
+    top: 0;
   }
 }
 #intro_page {
