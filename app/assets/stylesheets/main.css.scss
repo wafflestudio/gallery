@@ -52,14 +52,14 @@ ul { padding: 0; margin: 0; }
 
 #contents {
   position: relative;
-  height: 770px;
+  height: 790px;
 }
 #note {
 	background: url("/assets/note.png") no-repeat;
 	position: relative;
-	top: 116px;
+	top: 100px;
 	width: 898px;
-	height: 625px;
+	height: 664px;
 	margin: 0 auto;
 	text-align: left;
   background-position: right;
@@ -80,8 +80,11 @@ ul { padding: 0; margin: 0; }
 #intro_page {
   margin-top: 10px;
   width: 530px;
-  height: 580px;
+  height: 605px;
   background-color: #F0F0F0;
+  box-shadow: inset 0 0 4px #D5D5D5;
+  -webkit-box-shadow: inset 0 0 4px #D5D5D5;
+  -moz-box-shadow: inset 0 0 4px #D5D5D5;
   #intro {
     margin: 0 auto;
     width: 360px;
@@ -93,9 +96,10 @@ ul { padding: 0; margin: 0; }
 }
 #leftnote {
 	position: absolute;
-	left: 30px;
+	left: 33px;
 	padding: 0;
 	width: 540px;
+  top: 20px;
   h1 {
     padding-left: 40px;
     margin-top: 50px;
@@ -167,7 +171,7 @@ h3.name_label {
 
 #rightnote {
 	position: absolute;
-	top: 0;
+	top: 20px;
 	right: 0;
 	padding-top: 10px;
 	padding-bottom: 50px;
