@@ -1,6 +1,10 @@
 <div id="member_profile_box">
   <%= image_tag "member_profile.png", :id => "member_profile_label" %>
+  <% if @member.photo? %>
     <%= image_tag @member.photo.url(:large), :id => "member_photo" %>
+  <% else %>
+    <%= image_tag "placeholder.jpeg", :id => "member_photo" %>
+  <% end %>
   <span id="member_name"><%= @member.name %></span>
   <span id="member_organization"><%= @member.organization %></span>
 
