@@ -77,65 +77,67 @@
     <img src="/assets/wafflestudio.png" alt="WaffleStudio">
   </div>
 
-  <div id="note">
+  <div id="contents">
+    <div id="note">
+      <div id="leftnote">
+        <div id="intro_page">
+          <%= image_tag "middle_line.png", :style => "display: block; margin: 10px auto 15px;" %>
+          <div id="intro">
+            환영합니다!<br />
+            <br />
+            <span id="gal">'와플스튜디오 갤러리'</span>란 와플스튜디오의<br />
+            현재 진행중인 작업 아이디어 스케치들<br />
+            혹은 완성된 프로젝트들을 보여주는 공간입니다.<br />
+            와플스튜디오의 활동에 관심있는,<br />
+            혹은 와플스튜디오를 잘 모르지만 어떠한 활동을<br />
+            하는지 궁금증을 지닌 분들에게 와플스튜디오의<br />
+            이전 작업들을 이미지상으로 보여주는 것을 목적으로<br />
+            합니다.
+          </div>
+        </div>
+      </div><!--Leftnote-->
+
+      <div id="rightnote">
+        <div id="list1" class="list">
+          <p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
+          <% 0.upto((@sketches.count-1)/4) do |j| -%>
+            <div class="imgouter imgouter1 clearfix"> 
+              <% 0.upto(3) do |i| -%>
+                <% unless @sketches[j*4+i].nil? -%>
+                  <div class="imgbox">
+                    <%= link_to image_tag(@sketches[j*4+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*4+i]), :remote => true, :class => 'showproject'  unless @sketches[j*4+i].sketch_images.first.nil? %>
+                  </div><!--imgbox-->
+                <% else -%>
+                <% end -%>
+              <% end -%>
+            </div> <!--imgouter-->
+          <% end -%>
+
+        </div> <!--list1-->
+
+        <div id="list2" class="list">
+          <p><img src="/assets/project_title.png" alt="Projects"></p>
+          <% 0.upto((@projects.count-1)/4) do |j| -%>
+            <div class="imgouter imgouter2 clearfix">
+              <% 0.upto(3) do |i| -%>
+                <% unless @projects[j*4+i].nil? -%>
+                  <div class="imgbox">
+                    <%= link_to image_tag(@projects[j*4+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*4+i]), :remote => true, :class => 'showproject'  unless @projects[j*4+i].project_images.first.nil? %>
+                  </div><!--imgbox-->
+                <% else -%>
+                <% end -%>
+              <% end -%>
+            </div> <!--imgouter-->
+          <% end -%>
+
+        </div><!--list2-->
+      </div><!--Rightnote-->
+    </div><!--Note-->
     <div id="top_buttons">
       <%= link_to image_tag("idea_sketch.png"), sketches_path, :remote => true %>
       <%= link_to image_tag("project.png"), projects_path, :remote => true %>
     </div>
-    <div id="leftnote">
-      <div id="intro_page">
-        <%= image_tag "middle_line.png", :style => "display: block; margin: 10px auto 15px;" %>
-        <div id="intro">
-          환영합니다!<br />
-          <br />
-          <span id="gal">'와플스튜디오 갤러리'</span>란 와플스튜디오의<br />
-          현재 진행중인 작업 아이디어 스케치들<br />
-          혹은 완성된 프로젝트들을 보여주는 공간입니다.<br />
-          와플스튜디오의 활동에 관심있는,<br />
-          혹은 와플스튜디오를 잘 모르지만 어떠한 활동을<br />
-          하는지 궁금증을 지닌 분들에게 와플스튜디오의<br />
-          이전 작업들을 이미지상으로 보여주는 것을 목적으로<br />
-          합니다.
-        </div>
-      </div>
-    </div><!--Leftnote-->
-
-    <div id="rightnote">
-      <div id="list1" class="list">
-        <p><img src="/assets/idea_sketch_title.png" alt="Idea Sketches"></p>
-        <% 0.upto((@sketches.count-1)/4) do |j| -%>
-          <div class="imgouter imgouter1 clearfix"> 
-            <% 0.upto(3) do |i| -%>
-              <% unless @sketches[j*4+i].nil? -%>
-                <div class="imgbox">
-                  <%= link_to image_tag(@sketches[j*4+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*4+i]), :remote => true, :class => 'showproject'  unless @sketches[j*4+i].sketch_images.first.nil? %>
-                </div><!--imgbox-->
-              <% else -%>
-              <% end -%>
-            <% end -%>
-          </div> <!--imgouter-->
-        <% end -%>
-
-      </div> <!--list1-->
-
-      <div id="list2" class="list">
-        <p><img src="/assets/project_title.png" alt="Projects"></p>
-        <% 0.upto((@projects.count-1)/4) do |j| -%>
-          <div class="imgouter imgouter2 clearfix">
-            <% 0.upto(3) do |i| -%>
-              <% unless @projects[j*4+i].nil? -%>
-                <div class="imgbox">
-                  <%= link_to image_tag(@projects[j*4+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*4+i]), :remote => true, :class => 'showproject'  unless @projects[j*4+i].project_images.first.nil? %>
-                </div><!--imgbox-->
-              <% else -%>
-              <% end -%>
-            <% end -%>
-          </div> <!--imgouter-->
-        <% end -%>
-
-      </div><!--list2-->
-    </div><!--Rightnote-->
-  </div><!--Note-->
+  </div>
 
   <div id="footer">
     Powered by <a href="http://www.wafflestudio.com" target="_blank">Wafflestudio</a> | Designed by JR

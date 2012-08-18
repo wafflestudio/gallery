@@ -50,18 +50,24 @@ ul { padding: 0; margin: 0; }
 	position: relative;
 	top: 40px; }
 
+#contents {
+  position: relative;
+}
 #note {
-	background: url("/assets/notebg900.png") no-repeat;
+	background: url("/assets/note.png") no-repeat;
 	position: relative;
-	top: 40px;
+	top: 116px;
 	width: 898px;
-	height: 850px;
+	height: 795px;
 	margin: 0 auto;
-	text-align: left; }
+	text-align: left;
+  background-position: right;
+  z-index: 1;
+}
 #top_buttons {
   position: absolute;
   right: 0;
-  top: 10px;
+  top: 50px;
   width: 230px;
   height: 67px;
   a {
@@ -70,7 +76,8 @@ ul { padding: 0; margin: 0; }
   }
 }
 #intro_page {
-  width: 450px;
+  margin-top: 10px;
+  width: 530px;
   height: 650px;
   background-color: #F0F0F0;
   #intro {
@@ -84,10 +91,14 @@ ul { padding: 0; margin: 0; }
 }
 #leftnote {
 	position: absolute;
-	top: 80px;
-	left: 45px;
-	padding: 25px;
-	width: 450px; }
+	left: 30px;
+	padding: 0;
+	width: 540px;
+  h1 {
+    padding-left: 40px;
+    margin-top: 50px;
+  }
+}
 
 .bx-wrapper {
 	margin: 0 auto;	}
@@ -154,11 +165,11 @@ h3.name_label {
 
 #rightnote {
 	position: absolute;
-	top: 80px;
-	right: 10px;
-	padding-top: 50px;
+	top: 0;
+	right: 0;
+	padding-top: 10px;
 	padding-bottom: 50px;
-	width: 250px;}
+	width: 235px;}
 
 .list {
 	width: 250px;
