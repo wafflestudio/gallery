@@ -64,6 +64,9 @@
           prevImage: '/assets/leftbutton.png',
         nextImage: '/assets/rightbutton.png' });
       });
+      $('#top_buttons a').ajaxComplete(function(e, xhr, setting) {
+        $('#leftnote').html(xhr.responseText);
+      });
     });
   </script>
 <% end -%>
@@ -102,7 +105,7 @@
               <% 0.upto(3) do |i| -%>
                 <% unless @sketches[j*4+i].nil? -%>
                   <div class="imgbox">
-                    <%= link_to image_tag(@sketches[j*4+i].sketch_images.first.image.url(:small)), sketches_show_path(@sketches[j*4+i]), :remote => true, :class => 'showproject'  unless @sketches[j*4+i].sketch_images.first.nil? %>
+                    <%= link_to image_tag( @sketches[j*4+i].sketch_images == [] ? "sketch_index_icon_small.png" : @sketches[j*4+i].sketch_images.first.image.url(:small) ), sketches_show_path(@sketches[j*4+i]), :remote => true, :class => 'showproject'  %>
                   </div><!--imgbox-->
                 <% else -%>
                 <% end -%>
@@ -119,7 +122,7 @@
               <% 0.upto(3) do |i| -%>
                 <% unless @projects[j*4+i].nil? -%>
                   <div class="imgbox">
-                    <%= link_to image_tag(@projects[j*4+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*4+i]), :remote => true, :class => 'showproject'  unless @projects[j*4+i].project_images.first.nil? %>
+                    <%= link_to image_tag( @projects[j*4+i].project_images == [] ? "project_index_icon_small.png" : @projects[j*4+i].project_images.first.image.url(:small)), projects_show_path(@projects[j*4+i]), :remote => true, :class => 'showproject'%>
                   </div><!--imgbox-->
                 <% else -%>
                 <% end -%>

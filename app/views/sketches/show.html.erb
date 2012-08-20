@@ -2,6 +2,9 @@
 <h1><span class="project_title">idea sketch></span> <%= @sketch.title %></h1>
 
 <div id="slider">
+<% if @sketch.sketch_images == [] %>
+<div><%= image_tag "sketch_index_icon_big.png" %></div>
+<% end %>
 	<% @sketch.sketch_images.each do |p| %>
 		<div><%= image_tag(p.image.url(:large)) %></div>
 	<% end -%>
